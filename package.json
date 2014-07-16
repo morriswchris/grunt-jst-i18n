@@ -21,7 +21,6 @@
 	"files": ["jst-i18n"],
 	"main": "jst-i18n",
 	"devDependencies": {
-		"colors": "^0.6.2",
 		"grunt": "^0.4.5",
 		"grunt-cli": "^0.1.13",
 		"htmlprocessor": "^0.1.2",
