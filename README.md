@@ -18,6 +18,12 @@ Once the plugin has been installed, it may be enabled inside your Gruntfile with
 grunt.loadNpmTask("grunt-jst-i18n");
 ```
 
+## Tests
+
+```
+npm test //will execute the grunt test --verbose command
+```
+
 ## Methodology
 
 With build steps becoming more popular to alleviate load, passing i18n off to a build step allows for a faster load of web resources. As a result, passing off the creation of our templates per locale to a build task should save development time and load time. This idea was conceived based on the usage of [grunt-processhtml](https://github.com/dciccale/grunt-processhtml/). This will allow us to build one template with i18n variables, and at the time of build have a static html file generated per locale supported. Optionally, you can then pass this directly to the [grunt-contrib-jst](https://github.com/gruntjs/grunt-contrib-jst) to force a  pre-compilation of all templates.
