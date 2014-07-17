@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
 	grunt.initConfig({
 		i18n: {
-			dist: {
+			test: {
 				options: {
 					translations: "test/app/lang"
 				},
@@ -12,9 +12,16 @@ module.exports = function(grunt) {
 					dest: "test/build/i18n/"
 				}]
 			}
-		}
+		},
+		nodeunit: {
+			all: ["test/*_test.js"]
+		},
+		clean: ["test/build/**/*"]
 	});
 
 	grunt.loadTasks("tasks");
+	grunt.loadNpmTasks("grunt-contrib-clean");
+	grunt.loadNpmTasks("grunt-contrib-nodeunit");
 	grunt.registerTask("default", ["i18n"]);
+	grunt.registerTask("test", ["clean", "i18n:test", "nodeunit"]);
 };

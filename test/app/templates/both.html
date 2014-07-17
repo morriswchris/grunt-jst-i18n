@@ -1,0 +1,7 @@
+<h1>Interpolate + Evaluate + Static Text</h1>
+<h2><%t interpolate.heading %></h2>
+<ul>
+<%!t for(var i=0; i< evaluate.names.length; i++) { %>
+	<li><%t evaluate.names[i] %></li>
+<%!t } %>
+</ul>
