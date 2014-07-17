@@ -3,7 +3,11 @@ module.exports = function(grunt) {
 		i18n: {
 			test: {
 				options: {
-					translations: "test/app/lang"
+					translations: "test/app/lang",
+					templateSettings: {
+						interpolate: /\<\%t(.+?)\%\>/g,
+						evaluate: /\<\%\!t(.+?)\%\>/g
+					}
 				},
 				files: [{
 					expand: true,

@@ -49,9 +49,9 @@ module.exports = function(grunt) {
 				// Write joined contents to destination filepath.
 				var dest = file.dest.substr(0, file.dest.lastIndexOf("/")),
 					fileName = file.dest.substr(file.dest.lastIndexOf("/"));
-				grunt.file.write(dest + "/" + lang + "/" + fileName, contents);
+				grunt.file.write(dest + "/" + lang + fileName, contents);
 				// Print a success message.
-				grunt.log.writeln('File "' + dest + "/" + lang + "/" + fileName + '" created.');
+				grunt.log.writeln('File "' + dest + "/" + lang + fileName + '" created.');
 			});
 		});
 	});
