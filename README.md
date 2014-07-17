@@ -1,7 +1,8 @@
-grunt-jst-i18n
-==============
+# grunt-jst-i18n
 
 >Build time i18n of templates
+
+[![Build Status](https://travis-ci.org/morriswchris/grunt-jst-i18n.svg?branch=master)](https://travis-ci.org/morriswchris/grunt-jst-i18n)
 
 ## Getting Started
 This plugin requires Grunt.
