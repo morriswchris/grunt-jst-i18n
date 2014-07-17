@@ -1,6 +1,6 @@
 {
 	"name": "grunt-jst-i18n",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "JST compilation step to build templates with static i18n",
 	"scripts": {
 		"test": "grunt test -v"
