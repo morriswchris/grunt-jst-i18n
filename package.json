@@ -1,33 +1,33 @@
 {
-  "name": "grunt-jst-i18n",
-  "version": "0.0.1",
-  "description": "JST compilation step to build templates with static i18n",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:morriswchris/grunt-jst-i18n.git"
-  },
-  "keywords": [
-    "JST",
-    "i18n",
-    "grunt",
-    "grunt-cli",
-    "grunt-i18n"
-  ],
-  "author": "Chris Morris",
-  "license": "MIT",
-  "files": [
-    "jst-i18n"
-  ],
-  "main": "jst-i18n",
-  "devDependencies": {
-    "grunt": "^0.4.5",
-    "grunt-cli": "^0.1.13",
-    "grunt-contrib-clean": "^0.5.0",
-    "grunt-contrib-nodeunit": "^0.4.1",
-    "htmlprocessor": "^0.1.2",
-    "lodash": "^2.4.1"
-  }
+	"name": "grunt-jst-i18n",
+	"version": "1.0.0",
+	"description": "JST compilation step to build templates with static i18n",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:morriswchris/grunt-jst-i18n.git"
+	},
+	"keywords": [
+		"JST",
+		"i18n",
+		"grunt",
+		"grunt-cli",
+		"grunt-i18n"
+	],
+	"author": "Chris Morris",
+	"license": "MIT",
+	"files": [
+		"jst-i18n"
+	],
+	"main": "jst-i18n",
+	"devDependencies": {
+		"grunt": "^0.4.5",
+		"grunt-cli": "^0.1.13",
+		"grunt-contrib-clean": "^0.5.0",
+		"grunt-contrib-nodeunit": "^0.4.1",
+		"htmlprocessor": "^0.1.2",
+		"lodash": "^2.4.1"
+	}
 }

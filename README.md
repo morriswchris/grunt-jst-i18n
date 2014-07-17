@@ -20,11 +20,11 @@ grunt.loadNpmTask("grunt-jst-i18n");
 
 ## Methodology
 
-With build steps becoming more populare to alliviate load, passing i18n off to a build step allows for a faster load of web resources. As a result, passing off the creation of our templates per locale to a build task should save development time and load time. This idea was conceived based on the usage of [grunt-processhtml](https://github.com/dciccale/grunt-processhtml/). This will allow us to build one template with i18n variables, and at the time of build have a static html file generated per locale supported. Optionally, you can then pass this directly to the [grunt-contrib-jst](https://github.com/gruntjs/grunt-contrib-jst) to force a  pre-compilation of all templates.
+With build steps becoming more popular to alleviate load, passing i18n off to a build step allows for a faster load of web resources. As a result, passing off the creation of our templates per locale to a build task should save development time and load time. This idea was conceived based on the usage of [grunt-processhtml](https://github.com/dciccale/grunt-processhtml/). This will allow us to build one template with i18n variables, and at the time of build have a static html file generated per locale supported. Optionally, you can then pass this directly to the [grunt-contrib-jst](https://github.com/gruntjs/grunt-contrib-jst) to force a  pre-compilation of all templates.
 
 ## Options
 ### files
-Description: `Template files to be extropalated into i18n files using the [node-glob](https://github.com/isaacs/node-glob) patterns`
+Description: `Template files to be extrapolated into i18n files using the [node-glob](https://github.com/isaacs/node-glob) patterns`
 Type: `Object`
 
 ### options.translations
@@ -46,7 +46,7 @@ Below is all the necessities to get you up and running with i18n templates
 
 ### Language Module
 
-In order to faciliate translations, a required directory of namespaced translation modules must exist. The `i18n.options.translations` param will specify where to find the translation modules. Each language module follows the node `module.exports` convention.
+In order to facilitate translations, a required directory of namespaced translation modules must exist. The `i18n.options.translations` param will specify where to find the translation modules. Each language module follows the node `module.exports` convention.
 
 #### Example module
 
