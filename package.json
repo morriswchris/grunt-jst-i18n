@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"description": "JST compilation step to build templates with static i18n",
 	"scripts": {
-		"test": "grunt test"
+		"test": "node_modules/grunt-cli/bin/grunt test"
 	},
 	"repository": {
 		"type": "git",
