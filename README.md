@@ -24,7 +24,7 @@ With build steps becoming more popular to alleviate load, passing i18n off to a 
 
 ## Options
 ### files
-Description: `Template files to be extrapolated into i18n files using the [node-glob](https://github.com/isaacs/node-glob) patterns`
+Description: `Template files to be extrapolated into i18n files using the node-glob (https://github.com/isaacs/node-glob) patterns`
 Type: `Object`
 
 ### options.translations
@@ -32,13 +32,33 @@ Description: `Location of your language modules`
 Type: `String`
 
 ### options.templateSettings
-Description: `Optional object of [lodash supported template settings](http://lodash.com/docs#templateSettings)`
+Description: `Optional object of lodash supported template settings (http://lodash.com/docs#templateSettings)`
 Type: `Array`
-Default value: `{
+Default value: ```{
 				interpolate: /\<\%t(.+?)\%\>/g, //<%t %>
 				evaluate: /\<\%\!t(.+?)\%\>/g  //<%!t %>
-			}`
+			}```
 
+## Sample Grunt Config
+```javascript
+i18n: {
+			test: {
+				options: {
+					translations: "test/app/lang",
+					templateSettings: {
+						interpolate: /\<\%t(.+?)\%\>/g,
+						evaluate: /\<\%\!t(.+?)\%\>/g
+					}
+				},
+				files: [{
+					expand: true,
+					cwd: "test/app/templates",
+					src: ["**/*.html"],
+					dest: "test/build/i18n/"
+				}]
+			}
+		},
+```
 
 ## Templating Process
 
