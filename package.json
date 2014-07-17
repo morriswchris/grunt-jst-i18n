@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"description": "JST compilation step to build templates with static i18n",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "grunt test"
 	},
 	"repository": {
 		"type": "git",
