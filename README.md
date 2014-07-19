@@ -3,6 +3,9 @@
 >Build time i18n of templates
 
 [![Build Status](https://travis-ci.org/morriswchris/grunt-jst-i18n.svg?branch=master)](https://travis-ci.org/morriswchris/grunt-jst-i18n)
+[![NPM Version](http://img.shields.io/npm/v/grunt-jst-i18n.svg)](https://npmjs.org/package/grunt-jst-i18n)
+[![NPM Downloads](http://img.shields.io/npm/dm/grunt-jst-i18n.svg)](https://npmjs.org/package/grunt-jst-i18n)
+[![Built with Grunt](http://img.shields.io/badge/BUILT_WITH-GRUNT-orange.svg)](http://gruntjs.com/)
 
 ## Getting Started
 This plugin requires Grunt.
