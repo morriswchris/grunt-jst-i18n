@@ -1,33 +1,45 @@
 {
-	"name": "grunt-jst-i18n",
-	"version": "1.0.2",
-	"description": "JST compilation step to build templates with static i18n",
-	"scripts": {
-		"test": "grunt test -v"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git@github.com:morriswchris/grunt-jst-i18n.git"
-	},
-	"keywords": [
-		"JST",
-		"i18n",
-		"grunt",
-		"grunt-cli",
-		"grunt-i18n"
-	],
-	"author": "Chris Morris",
-	"license": "MIT",
-	"files": [
-		"jst-i18n"
-	],
-	"main": "task/jst-i18n",
-	"devDependencies": {
-		"grunt": "^0.4.5",
-		"grunt-cli": "^0.1.13",
-		"grunt-contrib-clean": "^0.5.0",
-		"grunt-contrib-nodeunit": "^0.4.1",
-		"htmlprocessor": "^0.1.2",
-		"lodash": "^2.4.1"
-	}
+  "name": "grunt-jst-i18n",
+  "version": "1.0.3",
+  "description": "JST compilation step to build templates with static i18n",
+  "scripts": {
+    "test": "grunt test -v"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/morriswchris/grunt-jst-i18n.git"
+  },
+  "keywords": [
+    "JST",
+    "i18n",
+    "grunt",
+    "grunt-cli",
+    "grunt-i18n"
+  ],
+  "author": {
+    "name": "Chris Morris"
+  },
+  "license": "MIT",
+  "files": [
+    "jst-i18n"
+  ],
+  "main": "task/jst-i18n",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-nodeunit": "^0.4.1",
+    "htmlprocessor": "^0.1.2",
+    "lodash": "^2.4.1"
+  },
+  "readme": "# grunt-jst-i18n\n\n>Build time i18n of templates\n\n[![Build Status](http://img.shields.io/travis/morriswchris/grunt-jst-i18n/master.svg?style=flat)](https://travis-ci.org/morriswchris/grunt-jst-i18n)\n[![NPM Version](http://img.shields.io/npm/v/grunt-jst-i18n.svg?style=flat)](https://npmjs.org/package/grunt-jst-i18n)\n[![NPM Downloads](http://img.shields.io/npm/dm/grunt-jst-i18n.svg?style=flat)](https://npmjs.org/package/grunt-jst-i18n)\n[![Built with Grunt](http://img.shields.io/badge/BUILT_WITH-GRUNT-orange.svg?style=flat)](http://gruntjs.com/)\n\n## Getting Started\nThis plugin requires Grunt.\n\nIf you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:\n\n```shell\nnpm install grunt-jst-i18n --save-dev\n```\n\nOnce the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:\n\n```js\ngrunt.loadNpmTask(\"grunt-jst-i18n\");\n```\n\n## Tests\n\n```\nnpm test //will execute the grunt test --verbose command\n```\n\n## Methodology\n\nWith build steps becoming more popular to alleviate load, passing i18n off to a build step allows for a faster load of web resources. As a result, passing off the creation of our templates per locale to a build task should save development time and load time. This idea was conceived based on the usage of [grunt-processhtml](https://github.com/dciccale/grunt-processhtml/). This will allow us to build one template with i18n variables, and at the time of build have a static html file generated per locale supported. Optionally, you can then pass this directly to the [grunt-contrib-jst](https://github.com/gruntjs/grunt-contrib-jst) to force a  pre-compilation of all templates.\n\n## Options\n### files\nDescription: `Template files to be extrapolated into i18n files using the node-glob (https://github.com/isaacs/node-glob) patterns`\nType: `Object`\n\n### options.translations\nDescription: `Location of your language modules`\nType: `String`\n\n### options.templateSettings\nDescription: `Optional object of lodash supported template settings (http://lodash.com/docs#templateSettings)`\nType: `Array`\nDefault value: ```{\n\t\t\t\tinterpolate: /\\<\\%t(.+?)\\%\\>/g, //<%t %>\n\t\t\t\tevaluate: /\\<\\%\\!t(.+?)\\%\\>/g  //<%!t %>\n\t\t\t}```\n\n## Sample Grunt Config\n```javascript\ni18n: {\n\t\t\ttest: {\n\t\t\t\toptions: {\n\t\t\t\t\ttranslations: \"test/app/lang\",\n\t\t\t\t\ttemplateSettings: {\n\t\t\t\t\t\tinterpolate: /\\<\\%t(.+?)\\%\\>/g,\n\t\t\t\t\t\tevaluate: /\\<\\%\\!t(.+?)\\%\\>/g\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\tfiles: [{\n\t\t\t\t\texpand: true,\n\t\t\t\t\tcwd: \"test/app/templates\",\n\t\t\t\t\tsrc: [\"**/*.html\"],\n\t\t\t\t\tdest: \"test/build/i18n/\"\n\t\t\t\t}]\n\t\t\t}\n\t\t},\n```\n\n## Templating Process\n\nBelow is all the necessities to get you up and running with i18n templates\n\n### Language Module\n\nIn order to facilitate translations, a required directory of namespaced translation modules must exist. The `i18n.options.translations` param will specify where to find the translation modules. Each language module follows the node `module.exports` convention.\n\n#### Example module\n\n```javascript\n//location: app/lang/en_US/interpolate.js\nmodule.exports = {\n    heading: \"this is a heading\"\n}\n\n```\n\n#### Example using en_US and fr_CA\n```javascript\n//the following tree of language modules\n├── app\n│   ├── lang\n│   │   ├── en_US\n│   │   │   ├── evaluate.js\n│   │   │   └── interpolate.js\n│   │   └── fr_CA\n│   │       ├── evaluate.js\n│   │       └── interpolate.js\n\n//produces this i18n object for templating data\nvar i18n = {\n\ten_US: {\n\t\t//contents of app/lang/en_US/evaluate.js\n\t\tevaluate: {\n\t\t\theading: \"this is a heading\"\n\t\t},\n\t\t//contents of app/lang/en_US/interpolate.js\n\t\tinterpolate: {\n\t\t\tnames: [\"name1\", \"name2\"]\n\t\t}\n\t},\n\tfr_CA: {\n\t\t//contents of app/lang/fr_CA/evaluate.js\n\t\tevaluate: {\n\t\t\theading: \"Ca c'est un title\"\n\t\t},\n\t\t//contents of app/lang/fr_CA/interpolate.js\n\t\tinterpolate: {\n\t\t\tnames: [\"nom1\", \"nom2\"]\n\t\t}\n\t}\n}\n```\n\nWe will then pass each of the locale indexes to our _.template function to be applied against our templates.\n\n### Templating Interpolation and Evaluation\n\nWith any front end templating language, there are two ways of processing the dynamic data: interpolation and evaluation. Interpolation (interpolate) is the character delimiter set used to print or echo out the result being asked. This is similar to server side templating where we wish to print a variable value only (like the <?= ?> in php ). Evaluation (evaluate) is the character delimiter used to perform a full execution of statements. This setting allows us to execute statements within markup, without printing anything. Below are example conventions for both interpolation and evaluation with the underscore/lodash templating engine.\n\n``` javascript\n//Define our interpolate and evaluate regex\n_.templateSettings.interpolate = /\\<\\%t(.+?)\\%\\>/g; //<%t %>\n_.templateSettings.evaluate = /\\<\\%\\!t(.+?)\\%\\>/g;  //<%!t %>\n\n// using the \"interpolate\" delimiter to create a compiled template\nvar compiled = _.template('hello <%t name %>');\ncompiled({ 'name': 'fred' });\n// ? 'hello fred'\n\n// using the \"evaluate\" delimiter to generate HTML\nvar list = '<%!t _.forEach(people, function(name) { %><li><%t name %></li><% }); %>';\n_.template(list, { 'people': ['fred', 'barney'] });\n// ? '<li>fred</li><li>barney</li>'\n\n// using the internal `print` function in \"evaluate\" delimiters\n_.template('<%!t print(\"hello \" + name); %>!', { 'name': 'barney' });\n// ? 'hello barney!'\n\n```\n\n\n\n#### Example Template with localization (based on above locale modules)\n\n``` html\n<!-- tpl:sample.html -->\n<h3><%t interpolate.heading %></h3>\n<input type=\"checkbox\" value=\"<%= toggle.val %>\" />\n<%!t for(var i=1; i<evaluate.names.length; i++){ %>\n<label><%t evaluate.names[i] %></label>\n<%!t } %>\n\n<!-- i18n/en_US tpl:sample.html -->\n<h3>this is a heading</h3>\n<input type=\"checkbox\" value=\"<%= toggle.val %>\" />\n<label>name1</label>\n<label>name2</label>\n\n<!--\nNotice how the line '<%= toggle.val %>' is the only line to not render. This is because it does not follow the i18n interpolation and evaluation rules. As a result, we are still able to build our template interchangeably though localization and dynamic template data.\n-->\n```\n",
+  "readmeFilename": "README.md",
+  "gitHead": "30f171ba2a6acdc76251915dbbe9a3c7bb6c210b",
+  "bugs": {
+    "url": "https://github.com/morriswchris/grunt-jst-i18n/issues"
+  },
+  "homepage": "https://github.com/morriswchris/grunt-jst-i18n",
+  "_id": "grunt-jst-i18n@1.0.2",
+  "_shasum": "85523ffc3ad00ef8ac4686e68cc2aed0d2e37ab8",
+  "_from": "grunt-jst-i18n@"
 }
