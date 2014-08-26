@@ -21,7 +21,7 @@
 	"files": [
 		"jst-i18n"
 	],
-	"main": "jst-i18n",
+	"main": "task/jst-i18n",
 	"devDependencies": {
 		"grunt": "^0.4.5",
 		"grunt-cli": "^0.1.13",
