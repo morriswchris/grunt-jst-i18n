@@ -1,6 +1,6 @@
 {
 	"name": "grunt-jst-i18n",
-	"version": "1.0.4",
+	"version": "1.0.5",
 	"description": "JST compilation step to build templates with static i18n",
 	"scripts": {
 		"test": "grunt test -v"
@@ -21,7 +21,12 @@
 	},
 	"license": "MIT",
 	"files": [
-    "jst-i18n"
+    "Gruntfile.js",
+    "LICENSE",
+    "README.md",
+    "package.json",
+    "tasks/",
+    "test/"
   ],
 	"main": "task/jst-i18n",
 	"devDependencies": {
